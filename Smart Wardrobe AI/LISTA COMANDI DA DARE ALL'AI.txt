@@ -1,9 +1,0 @@
-LISTA COMANDI DA DARE ALL'AI:
-
-MENU' A TENDINA
-tempo utilizzo capo: 1 settimana o più, 1 giorno, mezza giornata, mai usato
-
-livello di usura: alto, medio, basso, nuovo
-
-CAMPO DI TESTO
-note personalizzate: scrivere all'interno del campo di testo un segno particolare del capo, che può essere una macchia, uno strappo e via dicendo.
