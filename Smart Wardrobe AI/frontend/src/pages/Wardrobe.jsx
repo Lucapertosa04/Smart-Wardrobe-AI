@@ -1,4 +1,4 @@
-// src/pages/Wardrobe.jsx
+//Pagina principale
 
 import { useState } from "react";
 import Dropdown from "../components/Dropdown";
