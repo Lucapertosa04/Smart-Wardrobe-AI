@@ -1,58 +1,32 @@
-# services/ocr_service.py
+#Codice con API che legge OCR
 
-def extract_label_info(ocr_text: str):
-    """
-    Questa funzione simula l'elaborazione OCR di un'etichetta.
-    
-    INPUT:
-    - ocr_text: stringa di testo (risultato OCR o simulazione)
+import pytesseract
+from PIL import Image
+import re
 
-    OUTPUT:
-    - dizionario con informazioni strutturate sull'etichetta
-    """
 
-    # Dizionario che conterrà le informazioni finali estratte
-    # In futuro questo sarà letto dall'AI vera
-    label_data = {
-        "wash_temperature": None,  # Es. 30°C, 40°C
-        "wash_type": None,         # delicato / normale
-        "iron_allowed": None,      # True / False
-        "dry_clean": None          # True / False
-    }
+def extract_text_from_image(image_path: str)->str:
+   
+   #Estrae il testo da una immagine
 
-    # Normalizziamo il testo per facilitare il parsing
-    # (così evitiamo problemi con maiuscole/minuscole)
-    text = ocr_text.lower()
+   image = Image.open(image_path)
+   text = pytesseract.image_to_string(image, lang = "ita")
 
-    # ---------------------------
-    # ANALISI TEMPERATURA
-    # ---------------------------
-    if "30°" in text or "30" in text:
-        label_data["wash_temperature"] = "30°C"
-    elif "40°" in text or "40" in text:
-        label_data["wash_temperature"] = "40°C"
+   return text 
 
-    # ---------------------------
-    # ANALISI TIPO DI LAVAGGIO
-    # ---------------------------
-    if "delicato" in text:
-        label_data["wash_type"] = "delicato"
-    elif "normale" in text:
-        label_data["wash_type"] = "normale"
+def parse_label_text(ocr_text: str) -> dict:
+   #Analizza il testo dell'OCR dell'etichetta
 
-    # ---------------------------
-    # ANALISI STIRATURA
-    # ---------------------------
-    if "non stirare" in text:
-        label_data["iron_allowed"] = False
-    elif "stirare" in text:
-        label_data["iron_allowed"] = True
+   text = ocr_text.lower()
 
-    # ---------------------------
-    # ANALISI LAVAGGIO A SECCO
-    # ---------------------------
-    if "lavaggio a secco" in text:
-        label_data["dry_clean"] = True
+   result = {
+        "wash_30": "30°" in text,
+        "wash_40": "40°" in text,
+        "no_bleach": "non candeggiare" in text or "no bleach" in text,
+        "dry_clean": "lavaggio a secco" in text,
+        "raw_text": ocr_text
+   } 
 
-    # Ritorniamo il dizionario finale
-    return label_data
+   return result
+
+
