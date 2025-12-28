@@ -1,46 +1,36 @@
-# routes/ocr.py
+# Modificato per ricevere un'immagine
 
-# Blueprint serve per organizzare le rotte Flask
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, request, jsonify
+import os
+from services.ocr_service import extract_text_from_image, parse_label_text
 
-# Importiamo la logica OCR dal service
-from services.ocr_services import extract_label_info
-
-# Creiamo il blueprint OCR
 ocr_bp = Blueprint("ocr", __name__)
+
+UPLOAD_FOLDER = "uploads"
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 
 @ocr_bp.route("/analyze", methods=["POST"])
 def analyze_ocr():
     """
-    Endpoint API per analizzare un'etichetta OCR.
-
-    Riceve:
-    {
-        "ocr_text": "Lavare a 30°, ciclo delicato..."
-    }
-
-    Restituisce:
-    JSON con le informazioni estratte
+    Endpoint OCR.
+    Riceve un'immagine, estrae il testo e ritorna le info dell'etichetta.
     """
 
-    # Leggiamo il JSON dalla richiesta in modo sicuro
-    data = request.get_json(silent=True)
+    if "image" not in request.files:
+        return jsonify({"error": "Nessuna immagine ricevuta"}), 400
 
-    # Controlliamo che il JSON esista e contenga il campo necessario
-    if not data or "ocr_text" not in data:
-        return jsonify({
-            "error": "Campo ocr_text mancante"
-        }), 400
+    image = request.files["image"]
 
-    # Estraiamo il testo OCR
-    ocr_text = data["ocr_text"]
+    image_path = os.path.join(UPLOAD_FOLDER, image.filename)
+    image.save(image_path)
 
-    # Passiamo il testo alla logica OCR
-    label_info = extract_label_info(ocr_text)
+    # OCR
+    ocr_text = extract_text_from_image(image_path)
+    parsed_data = parse_label_text(ocr_text)
 
-    # Restituiamo la risposta al frontend
     return jsonify({
         "status": "ok",
-        "label_info": label_info
+        "ocr_text": ocr_text,
+        "label_info": parsed_data
     })
