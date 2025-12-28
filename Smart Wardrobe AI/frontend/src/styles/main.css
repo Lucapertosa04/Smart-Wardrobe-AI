@@ -1,0 +1,45 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+}
+
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.field {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+}
+
+.upload-box {
+  border: 2px dashed #aaa;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 10px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
