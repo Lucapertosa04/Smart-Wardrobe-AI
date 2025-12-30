@@ -1,38 +1,29 @@
-//Funzione che invia al backend il testo OCR
+// src/api/ocrApi.js
 
-export async function analyzeOcrText(ocrText) {
-    const API_URL = "http://127.0.0.1:5000/api/ocr/analyze";
+export async function analyzeOcrImage(imageFile) {
+  const API_URL = "http://127.0.0.1:5000/api/ocr/analyze";
 
-    const payload = {
-        ocr_text: ocrText
-    };
+  // FormData è OBBLIGATORIO per upload file
+  const formData = new FormData();
+  formData.append("image", imageFile);
 
-    try{
-        //Effettua una richiesta HTTP POST al backend
-        const response = await fetch(API_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type":"application/json" //Tipo di contenuto inviato
-            },
-            body: JSON.stringify(payload) //conversione del payload in JSON
-        });
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      body: formData
+    });
 
-        if(!response.ok){
-            throw new Error("Errore nella chiamata OCR");
-        }
-
-        const data = await response.json(); //converte la risposta HTTP in un ogetto javascript
-
-        return data;
-    }catch(error){
-        //Gestione degli errori
-        console.error("Errore OCR API:", error);
-
-        return{
-            status: "error",
-            message: error.message
-        }
+    if (!response.ok) {
+      throw new Error("Errore nella chiamata OCR API");
     }
-}
 
-//Verrà importato nei componenti React più avanti
+    return await response.json();
+
+  } catch (error) {
+    console.error("Errore OCR API:", error);
+    return {
+      status: "error",
+      message: error.message
+    };
+  }
+}
