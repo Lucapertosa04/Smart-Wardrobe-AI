@@ -3,14 +3,14 @@
 import pytesseract
 from PIL import Image
 import re
-
+pytesseract.pytesseract.tesseract_cmd = r'C:\Users\flavi\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
 
 def extract_text_from_image(image_path: str)->str:
    
    #Estrae il testo da una immagine
 
    image = Image.open(image_path)
-   text = pytesseract.image_to_string(image, lang = "ita")
+   text = pytesseract.image_to_string(image, lang = "eng")
 
    return text 
 
