@@ -9,6 +9,8 @@ from services.evaluation import evaluate_garment
 # Importa la funzione di validazione input
 from utils.validators import validate_user_input
 
+from services.llm_services import generate_advice
+
 # Crea un blueprint chiamato 'wardrobe'
 wardrobe_bp = Blueprint('wardrobe', __name__)
 
@@ -32,7 +34,8 @@ def analyze():
     advice = evaluate_garment(
         usage_time=data['usage_time'],   # Tempo di utilizzo
         wear_level=data['wear_level'],   # Livello di usura
-        notes=data.get('notes')           # Note opzionali
+        notes=data.get('notes'),
+        label_info = data.get("label_info", {})        
     )
 
     # Ritorna la risposta finale in formato JSON
