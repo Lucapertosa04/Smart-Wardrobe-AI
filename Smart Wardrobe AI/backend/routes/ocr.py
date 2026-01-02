@@ -2,7 +2,7 @@
 
 from flask import Blueprint, request, jsonify
 import os
-from services.ocr_service import extract_text_from_image, parse_label_text
+from services.ocr_services import extract_text_from_image, parse_label_text
 
 ocr_bp = Blueprint("ocr", __name__)
 
@@ -12,10 +12,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @ocr_bp.route("/analyze", methods=["POST"])
 def analyze_ocr():
-    """
-    Endpoint OCR.
-    Riceve un'immagine, estrae il testo e ritorna le info dell'etichetta.
-    """
+
 
     if "image" not in request.files:
         return jsonify({"error": "Nessuna immagine ricevuta"}), 400
