@@ -15,7 +15,8 @@ export default function Wardrobe() {
   const [wearLevel, setWearLevel] = useState("");
   const [notes, setNotes] = useState("");
   const [image, setImage] = useState(null);
-
+  const [aiResponse, setAiResponse] = useState("");
+ 
   /**
    * Funzione principale di analisi del capo.
    * 1. Invia l'immagine al backend OCR
@@ -23,6 +24,7 @@ export default function Wardrobe() {
    * 3. Invia tutto al backend wardrobe
    */
   async function handleAnalyze() {
+
 
     // ✅ CORREZIONE 1:
     // L'OCR non è obbligatorio per forza:
@@ -64,7 +66,8 @@ export default function Wardrobe() {
 
       // 3️⃣ Analisi capo (menu + note)
       const wardrobeResponse = await analyzeGarment(payload);
-
+      //Salva risposta AI
+      setAiResponse(wardrobeResponse.advice);
       // Debug temporaneo
       console.log("RISULTATO FINALE:", {
         ocr: ocrResponse,
@@ -72,6 +75,7 @@ export default function Wardrobe() {
       });
 
       alert("Analisi completata! Guarda la console 🚀");
+
 
     } catch (error) {
       console.error("Errore analisi:", error);
@@ -120,6 +124,25 @@ export default function Wardrobe() {
 
       {/* ✅ onClick punta SOLO alla funzione */}
       <Button text="Analizza capo" onClick={handleAnalyze} />
-    </div>
+      <Button
+        text="Reset"
+        onClick={() => {
+          setUsageTime("");
+          setWearLevel("");
+          setNotes("");
+          setImage(null);
+          setAiResponse("");
+      }}
+    />
+      {/* 🧠 Risposta dell'AI */}
+      {aiResponse && (
+        <div className="container">
+          <h2>Consiglio AI</h2>
+          <p>{aiResponse}</p>
+        </div>
+      )}  
+</div>
   );
 }
+
+
