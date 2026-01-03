@@ -15,6 +15,7 @@ def validate_user_input(data: dict):
     for field in required_fields:
         if field not in data:
             return f"Campo obbligatorio mancante: {field}"
+        
 
     # Valori consentiti per i menu a tendina
     USAGE_TIME_OPTIONS = ["1 settimana o più", "1 giorno", "mezza giornata", "mai usato"]
