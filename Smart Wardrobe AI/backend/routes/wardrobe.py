@@ -1,5 +1,4 @@
-# Importa Blueprint per creare un modulo di rotte
-# jsonify per restituire JSON
+
 # request per leggere i dati della richiesta HTTP
 from flask import Blueprint, jsonify, request
 
@@ -35,8 +34,8 @@ def analyze():
 
     # Chiama la logica di valutazione del capo
     advice = genera_advice(
-        usage_time=data['usage_time'],   # Tempo di utilizzo
-        wear_level=data['wear_level'],   # Livello di usura
+        usage_time=data['usage_time'],   
+        wear_level=data['wear_level'],   
         notes=data.get('notes'),
         label_info = label_info        
     )
