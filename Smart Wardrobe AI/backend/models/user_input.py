@@ -1,7 +1,7 @@
 class UserInput:
 
-    USAGE_TIME_OPTIONS = ["1 settimana o più", "1 giorno", "mezza giornata", "mai usato"]
-    WEAR_LEVEL_OPTIONS = ["alto", "medio", "basso", "nuovo"]
+    USAGE_TIME_OPTIONS = ["Indossato di frequente", "Indossato occasionalmente", "Indossato raramente", "Mai indossato"]
+    WEAR_LEVEL_OPTIONS = ["Usurato", "Mediocre", "Buono", "Ottimo", "Nuovo"]
 
     def __init__(self, usage_time: str, wear_level: str, notes: str = ""):
         self.usage_time = usage_time
