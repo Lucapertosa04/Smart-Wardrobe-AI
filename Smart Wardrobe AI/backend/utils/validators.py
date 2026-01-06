@@ -18,8 +18,8 @@ def validate_user_input(data: dict):
         
 
     # Valori consentiti per i menu a tendina
-    USAGE_TIME_OPTIONS = ["1 settimana o più", "1 giorno", "mezza giornata", "mai usato"]
-    WEAR_LEVEL_OPTIONS = ["alto", "medio", "basso", "nuovo"]
+    USAGE_TIME_OPTIONS = ["Indossato di frequente", "Indossato occasionalmente", "Indossato raramente", "Mai indossato"]
+    WEAR_LEVEL_OPTIONS = ["Usurato", "Mediocre", "Buono", "Ottimo", "Nuovo"]
 
     # Controlla che i valori siano validi
     if data["usage_time"] not in USAGE_TIME_OPTIONS:
