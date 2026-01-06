@@ -17,19 +17,9 @@ export default function Wardrobe() {
   const [image, setImage] = useState(null);
   const [aiResponse, setAiResponse] = useState("");
  
-  /**
-   * Funzione principale di analisi del capo.
-   * 1. Invia l'immagine al backend OCR
-   * 2. Riceve i dati dell'etichetta
-   * 3. Invia tutto al backend wardrobe
-   */
+  
   async function handleAnalyze() {
 
-
-    // ✅ CORREZIONE 1:
-    // L'OCR non è obbligatorio per forza:
-    // se vuoi renderlo obbligatorio va bene così,
-    // altrimenti questo controllo può essere tolto in futuro
     if (!image) {
       alert("Seleziona un'immagine dell'etichetta");
       return;
@@ -41,34 +31,26 @@ export default function Wardrobe() {
     }
 
     try {
-      // 1️⃣ OCR: invio immagine al backend
+      // OCR: invio immagine al backend
       const ocrResponse = await analyzeOcrImage(image);
 
-      // ✅ CORREZIONE 2:
-      // Controllo difensivo: se l'API OCR ritorna errore o null
       if (!ocrResponse || ocrResponse.status !== "ok") {
         alert("Errore durante l'analisi OCR");
         return;
       }
 
-      // 2️⃣ Costruzione payload completo
       const payload = {
         usage_time: usageTime,
         wear_level: wearLevel,
         notes: notes,
 
-        // ✅ CORREZIONE 3 (IMPORTANTE):
-        // label_info arriva dall'OCR, ma il backend wardrobe
-        // AL MOMENTO non lo usa.
-        // Va bene passarlo, ma il backend deve ignorarlo o gestirlo.
         label_info: ocrResponse.label_info
       };
 
-      // 3️⃣ Analisi capo (menu + note)
       const wardrobeResponse = await analyzeGarment(payload);
-      //Salva risposta AI
+  
       setAiResponse(wardrobeResponse.advice);
-      // Debug temporaneo
+      
       console.log("RISULTATO FINALE:", {
         ocr: ocrResponse,
         wardrobe: wardrobeResponse
@@ -90,10 +72,10 @@ export default function Wardrobe() {
       <Dropdown
         label="Tempo di utilizzo"
         options={[
-          "1 settimana o più",
-          "1 giorno",
-          "mezza giornata",
-          "mai usato"
+          "Indossato di frequente",
+          "Indossato occasionalmente",
+          "Indossato raramente",
+          "Mai indossato"
         ]}
         value={usageTime}
         onChange={(e) => setUsageTime(e.target.value)}
@@ -101,7 +83,7 @@ export default function Wardrobe() {
 
       <Dropdown
         label="Livello di usura"
-        options={["alto", "medio", "basso", "nuovo"]}
+        options={["Usurato", "Mediocre", "Buono", "Ottimo", "Nuovo"]}
         value={wearLevel}
         onChange={(e) => setWearLevel(e.target.value)}
       />
@@ -122,7 +104,7 @@ export default function Wardrobe() {
         </p>
       )}
 
-      {/* ✅ onClick punta SOLO alla funzione */}
+      {/* onClick punta SOLO alla funzione */}
       <Button text="Analizza capo" onClick={handleAnalyze} />
       <Button
         text="Reset"
@@ -134,7 +116,7 @@ export default function Wardrobe() {
           setAiResponse("");
       }}
     />
-      {/* 🧠 Risposta dell'AI */}
+      {/* Risposta dell'AI */}
       {aiResponse && (
         <div className="container">
           <h2>Consiglio AI</h2>
