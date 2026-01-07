@@ -2,8 +2,11 @@
 
 import pytesseract
 from PIL import Image
+import platform
 import re
-pytesseract.pytesseract.tesseract_cmd = r'C:\Users\flavi\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
+
+if platform.system() == "Windows":
+   pytesseract.pytesseract.tesseract_cmd = (r'C:\Users\flavi\AppData\Local\Programs\Tesseract-OCR\tesseract.exe')
 
 def extract_text_from_image(image_path: str)->str:
    
