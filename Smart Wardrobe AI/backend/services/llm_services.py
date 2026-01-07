@@ -2,7 +2,7 @@
 
 import requests
 
-OLLAMA_URL = "http://localhost:11434/api/generate"
+OLLAMA_URL = "http://host.docker.internal:11434/api/generate"
 
 def genera_advice(usage_time, wear_level, notes, label_info):
 
@@ -33,8 +33,17 @@ Rispondi con tono amichevole e semplice.
             "model":"mistral",
             "prompt": prompt,
             "stream": False
-        }
+        },
+        timeout = 60
     )
 
     data = response.json()
-    return data["response"]
+    if "response" in data:
+        return data["response"]
+    
+    if "error" in data:
+        return f"Errore LLM: {data['error']}"
+    
+    return "Errore: risposta LLM non valida"
+    
+    
