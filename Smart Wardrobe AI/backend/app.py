@@ -22,4 +22,6 @@ app.register_blueprint(ocr_bp, url_prefix="/api/ocr")
 
 # Avvia il server Flask solo se il file viene eseguito direttamente
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run( host="0.0.0.0",
+        port=5000,
+        debug=False)
