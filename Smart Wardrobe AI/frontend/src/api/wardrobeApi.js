@@ -6,7 +6,7 @@ export async function analyzeGarment(UserInput) {
     try{
         const response = await fetch(API_URL, {
             method: "POST",
-            headrs: {
+            headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(UserInput)
