@@ -2,7 +2,7 @@
 <p align="center">
   <img src="https://github.com/Lucapertosa04/Smart-Wardrobe-AI/blob/main/Logo%20Smart%20Wardrobe%20AI.png" alt="Logo:" width="300">
 </p>
-Smart Wardrobe AI è un’applicazione intelligente progettata per supportare l’utente nella valutazione delle caratteristiche dei capi di abbigliamento, con particolare attenzione alla durabilità, all’affidabilità e alla sostenibilità. Il sistema combina tecniche di **Intelligenza Artificiale**, **OCR (Optical Character Recognition)** e **analisi dei dati** per estrarre informazioni dalle etichette dei capi e fornire output chiari e interpretabili.
+Smart Wardrobe AI è un’applicazione intelligente progettata per supportare l’utente nella valutazione delle caratteristiche dei capi di abbigliamento, con particolare attenzione alla durabilità, all’affidabilità e alla sostenibilità. Il sistema combina tecniche di *Intelligenza Artificiale*, *OCR (Optical Character Recognition)* e *analisi dei dati* per estrarre informazioni dalle etichette dei capi e fornire output chiari e interpretabili.
 
 ---
 
@@ -67,35 +67,29 @@ L’applicazione è basata su un’architettura modulare composta da:
 ## ⚙️ Installazione
 
 1. Aprire il terminale e clonare il repository:
-   ```bash
-   git clone https://github.com/Lucapertosa04/Smart-Wardrobe-AI.git
-   ```
+    ```bash
+    git clone https://github.com/Lucapertosa04/Smart-Wardrobe-AI.git
+    ```
 
 2.Accedere alla directory del progetto:
-   ```bash
-   cd smart-wardrobe-ai\frontend
-   ```
+    ```bash
+    cd smart-wardrobe-ai\frontend
+    ```
 
 3. Creare l'immagine (Build):
-   ```bash
-   docker build -t smart-wardrobe-ai .
-   ```
+    ```bash
+    docker build -t smart-wardrobe-ai .
+    ```
 4. Lanciare il comando con le porte:
-   ```bash
-   docker run -it -p 8080:80 smart-wardrobe-ai
-   ```
+    ```bash
+    docker run -it -p 8080:80 smart-wardrobe-ai
+    ```
 5. Aprire il browser all'indirizzo:
-  ```bash
-   http://localhost:8080
-   ```
+    ```bash
+    http://localhost:8080
+    ```
 
 
-   
-## 📄 Contesto accademico
-
-Smart Wardrobe AI è stato sviluppato come **progetto di tesi**, con l’obiettivo di dimostrare come l’integrazione tra intelligenza artificiale e sostenibilità possa offrire soluzioni concrete e innovative nel settore della moda.
-
----
 
 ## 👤 Autori
 
