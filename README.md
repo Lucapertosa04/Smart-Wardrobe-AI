@@ -2,7 +2,7 @@
 <p align="center">
   <img src="https://github.com/Lucapertosa04/Smart-Wardrobe-AI/blob/main/Logo%20Smart%20Wardrobe%20AI.png" alt="Logo:" width="300">
 </p>
-Smart Wardrobe AI è un’applicazione intelligente progettata per supportare l’utente nella valutazione delle caratteristiche dei capi di abbigliamento, con particolare attenzione alla durabilità, all’affidabilità e alla sostenibilità. Il sistema combina tecniche di *Intelligenza Artificiale*, *OCR (Optical Character Recognition)* e *analisi dei dati* per estrarre informazioni dalle etichette dei capi e fornire output chiari e interpretabili.
+Smart Wardrobe AI è un’applicazione intelligente progettata per supportare l’utente nella valutazione delle caratteristiche dei capi di abbigliamento, con particolare attenzione alla durabilità, all’affidabilità e alla sostenibilità. Il sistema combina tecniche di Intelligenza Artificiale, OCR (Optical Character Recognition) e analisi dei dati per estrarre informazioni dalle etichette dei capi e fornire output chiari e interpretabili.
 
 ---
 
@@ -51,19 +51,15 @@ L’applicazione è basata su un’architettura modulare composta da:
 
 ## 📋 Requisiti
 
-### Requisiti software
-- Ambiente di esecuzione per backend (es. Python / Node.js)
-- Libreria OCR compatibile
-- Framework per API REST
-- Browser web moderno per il frontend
-
-### Requisiti hardware
+### Requisiti
 - Dispositivo con fotocamera o immagini delle etichette
 - Connessione internet per l’interazione client-server
-
-*(I requisiti specifici dipendono dall’implementazione adottata)*
+- Ambiente di esecuzione per backend (es. Python)
+- Docker
+- Browser web moderno per il frontend
 
 ---
+
 ## ⚙️ Installazione
 
 1. Aprire il terminale e clonare il repository:
@@ -88,8 +84,6 @@ L’applicazione è basata su un’architettura modulare composta da:
     ```bash
     http://localhost:8080
     ```
-
-
 
 ## 👤 Autori
 
