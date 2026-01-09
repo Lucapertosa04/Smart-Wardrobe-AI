@@ -1,31 +1,33 @@
 # 👕 Smart Wardrobe AI
 <p align="center">
-  <img src="https://path-to-your-logo.png" alt="Logo" width="200">
+  <img src="https://github.com/Lucapertosa04/Smart-Wardrobe-AI/blob/main/Logo%20Smart%20Wardrobe%20AI.png" alt="Logo:" width="300">
 </p>
 Smart Wardrobe AI è un’applicazione intelligente progettata per supportare l’utente nella valutazione delle caratteristiche dei capi di abbigliamento, con particolare attenzione alla durabilità, all’affidabilità e alla sostenibilità. Il sistema combina tecniche di **Intelligenza Artificiale**, **OCR (Optical Character Recognition)** e **analisi dei dati** per estrarre informazioni dalle etichette dei capi e fornire output chiari e interpretabili.
 
 ---
 
-## 📌 Obiettivi del progetto
+## 🎯 Scopo dell’applicazione
 
-L’obiettivo principale di Smart Wardrobe AI è migliorare la consapevolezza dell’utente riguardo ai capi che utilizza, favorendo scelte più informate e sostenibili.  
-In particolare, l’applicazione mira a:
+L’obiettivo di Smart Wardrobe AI è fornire un supporto decisionale all’utente, trasformando informazioni non strutturate (etichette tessili) e dati eterogenei in output strutturati e significativi.
 
-- automatizzare l’estrazione delle informazioni dalle etichette dei capi;
-- integrare dati automatici e dati inseriti dall’utente;
-- fornire stime affidabili accompagnate da indicatori di confidenza;
-- offrire un’interfaccia semplice e intuitiva.
+Il sistema è progettato per:
+- automatizzare l’estrazione dei dati tramite OCR (Optical Character Recognition);
+- normalizzare e validare input eterogenei;
+- eseguire inferenza tramite un modello predittivo;
+- restituire risultati trasparenti e affidabili.
 
 ---
 
-## 🧠 Funzionalità principali
+## 🧩 Caratteristiche
 
-- 📷 **Caricamento immagini** delle etichette dei capi  
-- 🔍 **Modulo OCR** per l’estrazione automatica del testo  
-- 🧹 **Pulizia e normalizzazione dei dati**  
-- 🤖 **Modello predittivo** basato su intelligenza artificiale  
-- 📊 **Output interpretabili**, con indicatore di affidabilità  
-- ⚠️ **Gestione degli errori** e dei casi di input incompleti  
+- Caricamento di immagini delle etichette dei capi
+- Estrazione automatica del testo tramite OCR
+- Pulizia e normalizzazione dei dati estratti
+- Integrazione dei dati inseriti manualmente dall’utente
+- Modello predittivo con output interpretabili
+- Indicatore di affidabilità associato a ogni stima
+- Gestione dei casi di input incompleti o incoerenti
+- Architettura modulare e facilmente estendibile
 
 ---
 
@@ -47,43 +49,55 @@ L’applicazione è basata su un’architettura modulare composta da:
 
 ---
 
-## ⚙️ Tecnologie utilizzate
+## 📋 Requisiti
 
-- OCR per il riconoscimento del testo dalle immagini  
-- Backend API per la gestione del flusso applicativo  
-- Modello di Intelligenza Artificiale per l’elaborazione predittiva  
-- Frontend web per l’interazione con l’utente  
+### Requisiti software
+- Ambiente di esecuzione per backend (es. Python / Node.js)
+- Libreria OCR compatibile
+- Framework per API REST
+- Browser web moderno per il frontend
 
-*(Le tecnologie specifiche possono essere adattate in base all’implementazione)*
+### Requisiti hardware
+- Dispositivo con fotocamera o immagini delle etichette
+- Connessione internet per l’interazione client-server
 
----
-
-## 🧪 Test e validazione
-
-Il sistema è stato sottoposto a:
-- **test funzionali**, per verificare il corretto funzionamento dei moduli;
-- **test di usabilità**, per valutare l’esperienza dell’utente;
-- **casi d’uso realistici**, per validare la qualità e la coerenza dei risultati.
+*(I requisiti specifici dipendono dall’implementazione adottata)*
 
 ---
+## ⚙️ Installazione
 
-## 🚀 Possibili sviluppi futuri
+1. Aprire il terminale e clonare il repository:
+   ```bash
+   git clone https://github.com/Lucapertosa04/Smart-Wardrobe-AI.git
+   ```
 
-- Ampliamento del dataset e miglioramento del modello predittivo  
-- Integrazione con database esterni su materiali e certificazioni  
-- Introduzione di sistemi di tracciabilità della filiera (es. blockchain)  
-- Personalizzazione avanzata degli output per l’utente  
-- Estensione a piattaforme e-commerce o applicazioni aziendali  
+2.Accedere alla directory del progetto:
+   ```bash
+   cd smart-wardrobe-ai\frontend
+   ```
 
----
+3. Creare l'immagine (Build):
+   ```bash
+   docker build -t smart-wardrobe-ai .
+   ```
+4. Lanciare il comando con le porte:
+   ```bash
+   docker run -it -p 8080:80 smart-wardrobe-ai
+   ```
+5. Aprire il browser all'indirizzo:
+  ```bash
+   http://localhost:8080
+   ```
 
+
+   
 ## 📄 Contesto accademico
 
 Smart Wardrobe AI è stato sviluppato come **progetto di tesi**, con l’obiettivo di dimostrare come l’integrazione tra intelligenza artificiale e sostenibilità possa offrire soluzioni concrete e innovative nel settore della moda.
 
 ---
 
-## 👤 Autore
+## 👤 Autori
 
-**Luca Pertosa**  
+**Luca Pertosa** e **Flavio Monaco**  
 Progetto di tesi – Smart Wardrobe AI
