@@ -5,6 +5,7 @@ import Dropdown from "../components/Dropdown";
 import TextInput from "../components/TextInput";
 import ImageUpload from "../components/ImageUpload";
 import Button from "../components/Button";
+import logo from "../assets/Logo Smart Wardrobe AI without background.png"
 
 // Import delle API
 import { analyzeGarment } from "../api/wardrobeApi";
@@ -67,7 +68,20 @@ export default function Wardrobe() {
 
   return (
     <div className="container">
-      <h1>Smart Wardrobe AI</h1>
+      <h1>
+  Smart Wardrobe AI
+  <img
+    src={logo}
+    alt="Logo"
+    style={{
+      width: "100px",
+      height: "90px",
+      marginLeft: "15px",
+      verticalAlign: "middle"
+    }}
+  />
+</h1>
+
 
       <Dropdown
         label="Tempo di utilizzo"
