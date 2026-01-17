@@ -67,20 +67,37 @@ L’applicazione è basata su un’architettura modulare composta da:
     git clone https://github.com/Lucapertosa04/Smart-Wardrobe-AI.git
     ```
 
-2.Accedere alla directory del progetto:
+2.Posizionarsi sulla cartella principale del progetto (Smart Wardrobe AI) e accedere alla directory del backend del progetto:
     ```bash
-    cd smart-wardrobe-ai\frontend
+    cd backend
     ```
 
-3. Creare l'immagine (Build):
+3. Creare l'immagine Docker del backend:
     ```bash
-    docker build -t smart-wardrobe-ai .
+    docker build -t smart-wardrobe-backend .
     ```
-4. Lanciare il comando con le porte:
+    
+4. Lanciare il comando con le porte (backend):
     ```bash
-    docker run -it -p 8080:80 smart-wardrobe-ai
+    docker run -d --name sw-backend -p 5000:5000 smart-wardrobe-backend
     ```
-5. Aprire il browser all'indirizzo:
+
+5.Accedere alla directory del frontend del progetto:
+    ```bash
+    cd ../frontend
+    ```
+
+6. Creare l'immagine Docker del frontend:
+    ```bash
+    docker build -t smart-wardrobe-frontend .
+    ```
+
+7. Lanciare il comando con le porte (frontend):
+    ```bash
+    docker run -d --name sw-frontend -p 8080:80 smart-wardrobe-frontend
+    ```
+
+8. Aprire il browser all'indirizzo:
     ```bash
     http://localhost:8080
     ```
