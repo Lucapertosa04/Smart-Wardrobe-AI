@@ -6,97 +6,114 @@ Smart Wardrobe AI è un’applicazione intelligente progettata per supportare l�
 
 ---
 
-## 🎯 Scopo dell’applicazione
+🎯 Scopo dell’applicazione
+L’obiettivo di Smart Wardrobe AI è fornire un supporto decisionale all’utente, trasformando informazioni non strutturate (etichette dei capi) e dati eterogenei in output strutturati e significativi.
 
-L’obiettivo di Smart Wardrobe AI è fornire un supporto decisionale all’utente, trasformando informazioni non strutturate (etichette tessili) e dati eterogenei in output strutturati e significativi.
-
-Il sistema è progettato per:
-- automatizzare l’estrazione dei dati tramite OCR (Optical Character Recognition);
+In particolare, il sistema è progettato per:
+- automatizzare l’estrazione dei dati tramite OCR;
 - normalizzare e validare input eterogenei;
 - eseguire inferenza tramite un modello predittivo;
-- restituire risultati trasparenti e affidabili.
+- restituire risultati trasparenti, interpretabili e affidabili.
 
----
+🧩 Caratteristiche
+📷 Caricamento di immagini delle etichette dei capi
+🔍 Estrazione automatica del testo tramite OCR
+🧹 Pulizia e normalizzazione dei dati estratti
+✍️ Integrazione dei dati inseriti manualmente dall’utente
+🤖 Modello predittivo con output interpretabili
+📊 Indicatore di affidabilità associato a ogni stima
+⚠️ Gestione di input incompleti o incoerenti
+🧱 Architettura modulare e facilmente estendibile
+🏗️ Architettura del sistema
 
-## 🧩 Caratteristiche
+L’applicazione è basata su un’architettura modulare composta dai seguenti componenti:
 
-- Caricamento di immagini delle etichette dei capi
-- Estrazione automatica del testo tramite OCR
-- Pulizia e normalizzazione dei dati estratti
-- Integrazione dei dati inseriti manualmente dall’utente
-- Modello predittivo con output interpretabili
-- Indicatore di affidabilità associato a ogni stima
-- Gestione dei casi di input incompleti o incoerenti
-- Architettura modulare e facilmente estendibile
+🔹 Frontend
+- Interfaccia utente web
+- Caricamento immagini
+- Inserimento dati manuali
+- Visualizzazione dei risultati
 
----
+🔹 Backend
+- Logica applicativa
+- Preparazione e validazione dei dati
+- Integrazione del modulo OCR
+- Comunicazione con il modello AI tramite API
 
-## 🏗️ Architettura del sistema
+🔹 Modulo OCR
+- Estrazione automatica del testo dalle immagini delle etichette
 
-L’applicazione è basata su un’architettura modulare composta da:
+🔹 Modello di Intelligenza Artificiale
+- Analisi dei dati normalizzati
+- Produzione delle stime finali
+- Calcolo dell’indicatore di affidabilità
 
-- **Frontend**  
-  Interfaccia utente per il caricamento delle immagini, l’inserimento dei dati e la visualizzazione dei risultati.
-
-- **Backend**  
-  Gestisce la logica applicativa, la preparazione dei dati, l’integrazione del modulo OCR e la comunicazione con il modello predittivo tramite API.
-
-- **Modulo OCR**  
-  Responsabile dell’estrazione del testo dalle immagini delle etichette.
-
-- **Modello di Intelligenza Artificiale**  
-  Elabora i dati normalizzati e produce le stime finali, includendo un indicatore di affidabilità.
-
----
-
-## 📋 Requisiti
-
-### Requisiti
-- Dispositivo con fotocamera o immagini delle etichette
-- Connessione internet per l’interazione client-server
-- Ambiente di esecuzione per backend (es. Python)
+📋 Requisiti
+  Requisiti software
 - Docker
-- Browser web moderno per il frontend
+- Ollama
+- Ambiente di esecuzione backend (es. Python)
+- Browser web moderno
+- Requisiti hardware
+- Dispositivo con fotocamera oppure immagini delle etichette
+- Connessione Internet per l’interazione client-server
 
----
+⚙️ Installazione
+1️⃣ Installazione di Ollama
+  Scaricare e installare Ollama dal sito ufficiale:
+  [Link ufficiale Ollama](https://ollama.com/download)
 
-## ⚙️ Installazione
+  Avviare Ollama dal terminale:
+  ```bash
+  ollama run mistral
+  ```
 
-1. Aprire il terminale e clonare il repository:
+
+2️⃣ Clonazione del repository
+Posizionarsi in una directory del proprio PC e clonare il progetto:
   ```bash
   git clone https://github.com/Lucapertosa04/Smart-Wardrobe-AI.git
   ```
 
-2.Posizionarsi sulla cartella principale del progetto (Smart Wardrobe AI) e accedere alla directory del backend del progetto:
+
+3️⃣ Avvio del backend
+Posizionarsi sulla directory principale del progetto (Smart Wardrobe AI) e accedere alla directory del backend:
   ```bash
   cd backend
   ```
 
-3. Creare l'immagine Docker del backend:
+Creare l’immagine Docker:
   ```bash
   docker build -t smart-wardrobe-backend .
   ```
     
-4. Lanciare il comando con le porte (backend):
+Avviare il container:
   ```bash
   docker run -d --name sw-backend -p 5000:5000 smart-wardrobe-backend
   ```
 
-5.Accedere alla directory del frontend del progetto:
+
+4️⃣ Avvio del frontend
+Accedere alla directory del frontend:
   ```bash
   cd ../frontend
   ```
-6. Creare l'immagine Docker del frontend:
+
+Creare l’immagine Docker:
   ```bash
   docker build -t smart-wardrobe-frontend .
   ```
-7. Lanciare il comando con le porte (frontend):
+
+Avviare il container:
   ```bash
-  docker run -d --name sw-frontend -p 8080:80 smart-wardrobe-frontend
+  docker run -d --name sw-frontend -p 3000:80 smart-wardrobe-frontend
   ```
-8. Aprire il browser all'indirizzo:
+
+
+5️⃣ Avvio dell’applicazione
+Aprire il browser all’indirizzo:
   ```bash
-  http://localhost:8080
+  http://localhost:3000
   ```
 
 ## 👤 Autori
