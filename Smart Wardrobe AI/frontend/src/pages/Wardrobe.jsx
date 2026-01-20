@@ -5,7 +5,7 @@ import Dropdown from "../components/Dropdown";
 import TextInput from "../components/TextInput";
 import ImageUpload from "../components/ImageUpload";
 import Button from "../components/Button";
-import logo from "../assets/Logo Smart Wardrobe AI without background.png"
+import logo from "../pages/Logo Smart Wardrobe AI without background.png"
 
 // Import delle API
 import { analyzeGarment } from "../api/wardrobeApi";
